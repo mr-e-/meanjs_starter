@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', '$state', 'Authentication', 'Menus',
-	function($scope, $state, Authentication, Menus) {
+angular.module('core').controller('HeaderController', ['$scope', '$state', 'Authentication', 'Menus', '$mdSidenav',
+	function($scope, $state, Authentication, Menus, $mdSidenav) {
 		// Expose view variables
 		$scope.$state = $state;
 		$scope.authentication = Authentication;
@@ -9,9 +9,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
 		// Get the topbar menu
 		$scope.menu = Menus.getMenu('topbar');
 
-		// Toggle the menu items
-		$scope.isCollapsed = false;
-		$scope.toggleCollapsibleMenu = function() {
+		$scope.toggleSidenav = function(menuId) {
+			$mdSidenav(menuId).toggle();
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
 

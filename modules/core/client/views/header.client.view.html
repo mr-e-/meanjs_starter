@@ -1,17 +1,36 @@
 <div data-ng-controller="HeaderController" flex layout-fill layout="column">
 	<md-toolbar layout="row" class="md-whiteframe-z1">
 		<div class="md-toolbar-tools">
-			<md-button data-ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+			<md-button data-ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button" data-ng-show='authentication.user'>
 				<md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
 			</md-button>
 
 			<a href="/"><h1>Starter</h1></a>
 		</div>
 
-		<span layout="row" layout-align="center end">
+		<span layout="row" layout-align="center end" data-ng-hide="authentication.user">
 			<a data-ui-sref="authentication.signup"><md-button aria-label="Sign Up">Sign Up</md-button></a>
 			<a data-ui-sref="authentication.signin"><md-button aria-label="Sign In">Sign In</md-button></a>
 		</span>
+
+		<!--<ul class="dropdown-menu">-->
+		<!--<li data-ui-sref-active="active">-->
+		<!--<a data-ui-sref="settings.profile">Edit Profile</a>-->
+		<!--</li>-->
+		<!--<li data-ui-sref-active="active">-->
+		<!--<a data-ui-sref="settings.picture">Change Profile Picture</a>-->
+		<!--</li>-->
+		<!--<li data-ui-sref-active="active" data-ng-show="authentication.user.provider === 'local'">-->
+		<!--<a data-ui-sref="settings.password">Change Password</a>-->
+		<!--</li>-->
+		<!--<li data-ui-sref-active="active">-->
+		<!--<a data-ui-sref="settings.accounts">Manage Social Accounts</a>-->
+		<!--</li>-->
+		<!--<li class="divider"></li>-->
+		<!--<li>-->
+		<!--<a href="/api/auth/signout" target="_self">Signout</a>-->
+		<!--</li>-->
+		<!--</ul>-->
 
 	</md-toolbar>
 	<!--<div class="navbar-header">-->
